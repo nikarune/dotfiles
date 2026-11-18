@@ -1,0 +1,64 @@
+// Fully written by meee (nikah)!!
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"spacing": 4,
+	"modules-left": [
+		"clock"
+	],
+	"modules-center": [
+		"mango/window",
+		"mango/workspaces"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"custom/network",
+		"cpu",
+		"memory",
+		"temperature",
+		"battery",
+		"tray"
+	],
+	
+	// MangoWM specific
+	"mango/workspaces": {
+		"format": "[{icon}]",
+		"hide-empty": true
+	},
+	"mango/window": {
+		"format": "{}",
+		"icon-size": 20
+	},
+	"mango/layout": {
+		"format": "layout: {}"
+	},
+
+	// Hardware modules
+	"cpu": {
+		"format": "cpu {usage}%",
+		"tooltip": true
+	},
+	"memory": {
+		"format": "mem {}%"
+	},
+	"battery": {
+		"format": "battery {}%"
+	},
+	"clock": {
+		"format": "{%Y-%m-%d %H:%M}"
+	},
+	"pulseaudio": {
+		"format": "vol {volume}%"
+	},
+	"custom/network": {
+		"format": "wifi {ifname}",
+		"format-wifi": "{signal} {ssid}"
+	},
+	"custom/network": {
+		"exec": "nmcli -t -f ACTIVE,SSID dev wifi | grep '^yes' | cut -d: -f2",
+		"format": "wifi {}",
+		"interval": 5,
+		"tooltip": false
+	}
+}
